@@ -1,0 +1,8 @@
+<library path="libkcctplugin">
+  <!-- Dial Panel -->
+  <class name="kcctplugin/NavigationPanel" type="kcctplugin::NavigationPanel" base_class_type="rviz::Panel">
+    <description>
+      Dial Panel plugin.
+    </description>
+  </class>
+</library>

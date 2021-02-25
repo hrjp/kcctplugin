@@ -1,0 +1,26 @@
+<package format="2">
+  <name>kcctplugin</name>
+  <version>1.0.0</version>
+  <description>kcctplugin</description>
+
+  <author email="r115159@g.kobe-kosen.ac.jp">kcct-Hara</author>
+  <maintainer email="r115159@g.kobe-kosen.ac.jp">kcct-Hara</maintainer>
+
+  <license>Appache2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>pkg-config</buildtool_depend>
+
+  <depend>class_loader</depend>
+  <depend>pluginlib</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>rviz</depend>
+  <depend>eigen</depend>
+  <depend>qtbase5-dev</depend>
+
+  <export>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+
+</package>
