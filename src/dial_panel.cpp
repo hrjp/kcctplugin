@@ -4,6 +4,7 @@
 #include <std_msgs/Float32.h>
 
 #include "ui_dial_panel.h"
+#include <kcctplugin/button_status.h>
 
 namespace kcctplugin
 {

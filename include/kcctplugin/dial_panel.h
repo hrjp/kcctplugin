@@ -24,16 +24,6 @@ class NavigationPanel: public rviz::Panel
   void onDisable();
 
   private:
-  enum buttons_status{
-    buttons_status_free,//0
-    buttons_status_start,//1
-    buttons_status_pause,//2
-    buttons_status_initialpose,//3
-    buttons_status_plus,//4
-    buttons_status_mynus,//5
-    buttons_status_reset,//6
-    buttons_status_zpublish//7
-  };
 
 private Q_SLOTS:
   

@@ -74,11 +74,12 @@ qt5_wrap_ui(UIC_FILES
 set(SOURCE_FILES
   src/dial_panel.cpp
   )
-
+  add_executable(3d_initial_pose src/3d_initial_pose.cpp)
+  target_link_libraries(3d_initial_pose ${catkin_LIBRARIES})
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${HEADERS} ${UIC_FILES})
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION "${${PROJECT_NAME}_VERSION}")
 target_include_directories(${PROJECT_NAME} PRIVATE "${OGRE_PREFIX_DIR}/include")
-
+set(HEADERS include/kcctplugin/button_status.h)
 ###########
 # Install #
 ###########
