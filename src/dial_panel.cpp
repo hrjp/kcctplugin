@@ -1,6 +1,7 @@
 #include <kcctplugin/dial_panel.h>
 #include <pluginlib/class_list_macros.h>
 #include <std_msgs/Int32.h>
+#include <std_msgs/Float32.h>
 
 #include "ui_dial_panel.h"
 
@@ -26,11 +27,17 @@ void NavigationPanel::onInitialize()
   connect(ui_->waypoint_box, SIGNAL(valueChanged(int)), this , SLOT(ValueChanged(int)));
   connect(ui_->publish_button, SIGNAL(clicked()), this, SLOT(publishClicked()));
 
+  //3d pose estimate
+  connect(ui_->zposition, SIGNAL(valueChanged(double)), this , SLOT(zposition(double)));
+  connect(ui_->zposition_button, SIGNAL(clicked()), this, SLOT(zpublishClicked()));
+
+
   //ui_->line_edit->setPlaceholderText("Input topic name (Default : dial)");
   //connect(ui_->line_edit,  SIGNAL(textChanged(const QString &)), this, SLOT(lineEditChanged()));
 
   pub_ = nh_.advertise<std_msgs::Int32>("buttons", 1);
   wppub_ = nh_.advertise<std_msgs::Int32>("waypoint/set", 1);
+  zpub=nh_.advertise<std_msgs::Float32>("initialpose_z", 1);
   parentWidget()->setVisible(true);
 }
 
@@ -73,7 +80,14 @@ void NavigationPanel::pauseClicked(){buttonClicked(buttons_status_pause);}
 void NavigationPanel::initialposeClicked(){buttonClicked(buttons_status_initialpose);}
 void NavigationPanel::plusClicked(){buttonClicked(buttons_status_plus);}
 void NavigationPanel::mynusClicked(){buttonClicked(buttons_status_mynus);}
-void NavigationPanel::resetClicked(){buttonClicked(buttons_status_reset);}
+void NavigationPanel::zpublishClicked(){buttonClicked(buttons_status_zpublish);}
+
+void NavigationPanel::resetClicked(){
+  buttonClicked(buttons_status_reset);
+  std_msgs::Int32 msg;
+  msg.data = 0;
+  wppub_.publish(msg);
+}
 
 void NavigationPanel::buttonClicked(int button_num)
 {
@@ -95,6 +109,15 @@ void NavigationPanel::publishClicked()
   msg.data = value_;
   wppub_.publish(msg);
   //ROS_INFO("WayPoint Number[%d]",value_);
+}
+
+void NavigationPanel::zposition(double zpos){
+  std_msgs::Float32 msg;
+  if(ui_->mynus_box->checkState()==Qt::Checked){
+    zpos=-zpos;
+  }
+  msg.data=zpos;
+  zpub.publish(msg);
 }
 
 

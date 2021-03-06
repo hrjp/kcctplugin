@@ -25,13 +25,14 @@ class NavigationPanel: public rviz::Panel
 
   private:
   enum buttons_status{
-    buttons_status_free,
-    buttons_status_start,
-    buttons_status_pause,
-    buttons_status_initialpose,
-    buttons_status_plus,
-    buttons_status_mynus,
-    buttons_status_reset
+    buttons_status_free,//0
+    buttons_status_start,//1
+    buttons_status_pause,//2
+    buttons_status_initialpose,//3
+    buttons_status_plus,//4
+    buttons_status_mynus,//5
+    buttons_status_reset,//6
+    buttons_status_zpublish//7
   };
 
 private Q_SLOTS:
@@ -49,6 +50,9 @@ private Q_SLOTS:
   void ValueChanged(int value);
   void publishClicked();
 
+  void zposition(double zpos);
+  void zpublishClicked();
+
 protected:
   Ui::DialUI* ui_;
   int value_{0};
@@ -57,5 +61,6 @@ protected:
   ros::NodeHandle nh_;
   ros::Publisher pub_;
   ros::Publisher wppub_;
+  ros::Publisher zpub;
 };
 } // end namespace kcctplugin

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>355</width>
-    <height>216</height>
+    <height>267</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -50,6 +50,18 @@
    </item>
    <item>
     <widget class="QGroupBox" name="groupBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>200</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>90</height>
+      </size>
+     </property>
      <property name="title">
       <string>WAYPOINT</string>
      </property>
@@ -99,6 +111,61 @@
         </layout>
        </item>
       </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>100</horstretch>
+       <verstretch>100</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>3D POSE ESTIMATE</string>
+     </property>
+     <widget class="QDoubleSpinBox" name="zposition">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>121</width>
+        <height>27</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="zposition_button">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>20</y>
+        <width>161</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Publish</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="mynus_box">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>20</y>
+        <width>41</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
      </widget>
     </widget>
    </item>
