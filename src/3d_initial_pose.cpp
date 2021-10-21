@@ -82,7 +82,7 @@ int main(int argc, char **argv){
     pubpose.pose.covariance[14]=0.25/2.0;
     pubpose.pose.covariance[21]=0.06853891945200942/4.0;
     pubpose.pose.covariance[28]=0.06853891945200942/4.0;
-    pubpose.pose.covariance[35]=0.06853891945200942;
+    pubpose.pose.covariance[35]=0.06853891945200942/4.0;
 
     ros::spin();
     
