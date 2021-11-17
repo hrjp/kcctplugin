@@ -1,3 +1,7 @@
+![license](https://img.shields.io/github/license/hrjp/kcctplugin)
+![size](https://img.shields.io/github/repo-size/hrjp/kcctplugin)
+![commit](https://img.shields.io/github/last-commit/hrjp/kcctplugin/main)
+
 # kcctplugin
 自律移動用のrviz plugin
 
