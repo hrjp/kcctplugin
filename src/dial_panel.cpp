@@ -114,9 +114,6 @@ void NavigationPanel::publishClicked()
 
 void NavigationPanel::zposition(double zpos){
   std_msgs::Float32 msg;
-  if(ui_->mynus_box->checkState()==Qt::Checked){
-    zpos=-zpos;
-  }
   msg.data=zpos;
   zpub.publish(msg);
 }
